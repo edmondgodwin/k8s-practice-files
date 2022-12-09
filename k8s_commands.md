@@ -1,4 +1,4 @@
-#### K8S COMMANDS###
+#### K8S COMMANDS
 
 kubectl create -h (show help for kubectl create)
 Usage:
@@ -40,6 +40,7 @@ kubectl create deployment my-dep --image=busybox --port=5701
 
 ```
 kubectl delete deployment <deployment-name>
+kubectl delete pod <pod-name>
 ```
 
 
@@ -61,7 +62,8 @@ kubectl get pods
 kubectl get pods --watch
 kubectl get service
 kubectl get replicaset
-kb get pods -o wide
+kubectl get pods -o wide
+kubectl get po <pod-name> -o yaml 
 ```
 
 
@@ -116,6 +118,9 @@ echo -n 'enter the value' | base64
     kubectl describe pod mongodb-deployment-xxxxxx
     kubectl describe service mongodb-service
     kubectl logs mongo-express-xxxxxx
+    kubectl exec -it po <pod-name> bash   -> used to login to container for debugging
+    kubectl exec -it po -c <pod-name> bash   -> used to login to podd with multiple containers
+    kubectl edit po <pod-name>   -> used to edit pod manifest if you dont have access to manifest file ** This is a bad idea **
 
 #### give a URL to external service in minikube
 ```
