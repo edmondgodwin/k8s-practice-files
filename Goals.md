@@ -2,8 +2,8 @@
 ## CAREER GOAL FOR W3M12Y22
 
 > Achieve dedicated 3 hours intervals of 
->laser focus learning in the day 
->and 30 hours laser focus of studying in the week
+> laser focus learning in the day 
+> and 30 hours laser focus of studying in the week
 
 ### SCHEDULE
 
