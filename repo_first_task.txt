@@ -1,0 +1,12 @@
+
+Create and push to a new repo
+
+
+echo "# <repo-name>" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M master
+git remote add origin https://github.com/edmondgodwin/<repo_name>.git
+git push -u origin master
+git branch --set-upstream-to=origin/master master
