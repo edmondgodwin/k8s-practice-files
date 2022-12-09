@@ -95,8 +95,9 @@ The value pair for the secret must be created with a base 64 encoding
     kubectl logs mongo-express-xxxxxx
 
 #### give a URL to external service in minikube
-
+'''
     minikube service mongo-express-service
+'''
 
 #### Common kubernetes help commands
 '''
