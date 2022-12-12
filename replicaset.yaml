@@ -3,7 +3,7 @@ kind: ReplicaSet
 metadata:
   name: my-rs
 spec:
-  replicas: 2
+  replicas: 4
   selector:
     matchLabels:    # The labels here must match what has been defined under metadata
       app: nginx
@@ -18,3 +18,11 @@ spec:
       containers:
         - name: my-first-app
           image: nginx:1.10
+
+
+
+
+# You can increase replicas with the simple commandline = kubectl scale rs <rs-name> --replicas=<no-of-replicas>. This is not best practice
+# You can update container name and labels in this yaml file
+# Replicaset does not have capabilities to check image change and updates. 
+# To enforce the change, you have to delete pods by changing it to zero and update replicaset to create new pods with new image
