@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: my-depl
 spec:
-  replicas: 6
+  replicas: 2
   selector:
     matchLabels:    # The labels here must match what has been defined under metadata
       app: nginx
@@ -18,13 +18,18 @@ spec:
       containers:    # Define image for the container and container properties
         - name: my-first-app
           image: nginx
+          env:
+            - name: application
+              value: front-end-app
+            - name:  db
+              value: test
           resources:
             requests:   # Initial or minimum size when pod is created
               memory: "64Mi"
               cpu: "250m"
             limits:     # The maximum size of the pod
               memory: "128Mi"
-              cpu: "500m"
+              cpu: "500m"  # If pod tries to exceed this limit, it will fail with OM - Out of memory error
           
               
            
@@ -35,3 +40,5 @@ spec:
 # kubectl get rs,po,deploy
 # kubectl rollout history deploy <deployment-name>
 # kubectl rollout undo deployment <deploy-name>   (Rolls back to the former deployment)
+
+# When resources are defined, the pods are called guaranteed pods. It gives priorities to pods during scheduling.
