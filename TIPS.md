@@ -16,7 +16,7 @@
 	5. Healthcheck part information
 	6. Any other settings
 
-5.  
+5.  VS-Code extensions for Kubernetes: Kubernetes, Yaml & Kubernetes support
 
 
 
