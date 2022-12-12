@@ -15,11 +15,23 @@ spec:
         app: nginx         # The label is up to you
         type: front-end    # You define the labels you want to use
     spec:
-      containers:
+      containers:    # Define image for the container and container properties
         - name: my-first-app
           image: nginx
+          resources:
+            requests:   # Initial or minimum size when pod is created
+              memory: "64Mi"
+              cpu: "250m"
+            limits:     # The maximum size of the pod
+              memory: "128Mi"
+              cpu: "500m"
+          
+              
+           
 
 
 
-
-# common commands = kubectl get rs,po,deploy
+# Commands
+# kubectl get rs,po,deploy
+# kubectl rollout history deploy <deployment-name>
+# kubectl rollout undo deployment <deploy-name>   (Rolls back to the former deployment)
