@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata: 
+  name: nginx-service
+spec:
+  type: ClusterIP       # If not defined, it defaults to ClusterIP
+  selector:
+    app: nginx
+    type: front-end
+  ports:
+    - name: http-request
+      port: 80          # This is the service object Port
+      targetPort: 80    # Target port is the container port
+    - name: https-request
+      port: 443         # This is the service object Port
+      targetPort: 443
+
+
+
+
+
+
+# Best service is to create service first before deployment in other to create route table for the deployment.
