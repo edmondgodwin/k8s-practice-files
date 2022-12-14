@@ -115,6 +115,7 @@ echo -n 'enter the value' | base64
 
 #### kubectl debugging commands
 
+    watch kubectl get po
     kubectl describe pod mongodb-deployment-xxxxxx
     kubectl describe service mongodb-service
     kubectl logs mongo-express-xxxxxx
@@ -132,5 +133,6 @@ minikube service mongo-express-service
 kubectl explain <object_name>
 kubectl api-resources
 kubectl explain pod.spec
+kubectl config -h
 ```
 
