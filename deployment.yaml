@@ -23,6 +23,11 @@ spec:
               value: front-end-app
             - name:  db
               value: test
+            - name: dbname
+              valueFrom:
+                configMapKeyRef:
+                  key: db-configmap
+                  value: dbusername
           resources:
             requests:   # Initial or minimum size when pod is created
               memory: "64Mi"
