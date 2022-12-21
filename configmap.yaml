@@ -3,7 +3,17 @@ kind: ConfigMap
 metadata:
   name: db-configmap
 data:
-  databasename: db-test
-  dbusername: admin
-  dbpassword: admin
+  db: test
+  application: front-end
+  nginx.conf: |
+    this is nginx
+    configmap example
+---
 
+apiVersion: v1
+kind: Secret
+metadata:
+  name: db-secret
+data:
+  dbusername: YWRtaW4=
+  dbpassword: YWRtaW5AMTIz

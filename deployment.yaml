@@ -15,19 +15,34 @@ spec:
         app: nginx         # The label is up to you
         type: front-end    # You define the labels you want to use
     spec:
+      volumes:
+        - name: nginx-conf
+          configMap:
+            name: db-configmap
       containers:    # Define image for the container and container properties
         - name: my-first-app
           image: nginx
           env:
-            - name: application
-              value: front-end-app
-            - name:  db
-              value: test
             - name: dbname
               valueFrom:
                 configMapKeyRef:
-                  key: db-configmap
-                  value: dbusername
+                  name: db-configmap
+                  key: db
+            - name: application
+              valueFrom:
+                configMapKeyRef:
+                  name: db-configmap
+                  key: application
+            - name: db-uname
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: dbusername
+            - name: dbpassword
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: dbpassword
           resources:
             requests:   # Initial or minimum size when pod is created
               memory: "64Mi"
@@ -35,8 +50,9 @@ spec:
             limits:     # The maximum size of the pod
               memory: "128Mi"
               cpu: "500m"  # If pod tries to exceed this limit, it will fail with OM - Out of memory error
-          
-              
+          volumeMounts:
+            - name: nginx-conf
+              mountPath: /opt/  # The path where you want to file to be copied into
            
 
 
