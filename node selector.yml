@@ -12,5 +12,5 @@ spec:
 
 
 
-# kubectl label nodes node_name size=medium
+# kubectl label nodes node_name size=medium   (command to create label, this is an admin activity)
  
