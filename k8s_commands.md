@@ -112,6 +112,7 @@ echo -n 'enter the value' | base64
     kubectl get service
     kubectl get secret
     kubectl get all | grep mongodb
+    kubectl get po -n <namespace>
 
 #### kubectl debugging commands
 
@@ -134,5 +135,15 @@ kubectl explain <object_name>
 kubectl api-resources
 kubectl explain pod.spec
 kubectl config -h
+```
+
+#### Kubectl Admin commands
+```
+kubectl label nodes node_name size=medium
+kubectl taint nodes <node_name> key1:value1:noSchedule
+kubectl taint nodes <node_name> key1:value1:noSchedule- (remove taint on node)
+kubectl get taint
+kubectl create ns <namespace_name>
+kubectl config set-context --current --namespace=<namespace>
 ```
 
