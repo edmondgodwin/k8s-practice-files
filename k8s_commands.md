@@ -103,6 +103,7 @@ echo -n 'enter the value' | base64
     kubectl apply -f mongo.yaml
     kubectl apply -f mongo-configmap.yaml 
     kubectl apply -f mongo-express.yaml
+    kubectl apply -f <filename> -n <namespace>
 
 #### kubectl get commands
 
@@ -144,6 +145,9 @@ kubectl taint nodes <node_name> key1:value1:noSchedule
 kubectl taint nodes <node_name> key1:value1:noSchedule- (remove taint on node)
 kubectl get taint
 kubectl create ns <namespace_name>
-kubectl config set-context --current --namespace=<namespace>
+kubectl config set-context --current --namespace=<namespace>  (set current namespace to default)
+kubectl get quota  (view namespace quota)
+kubectl get limitrange
+kubectl describe limitrange <limitrange-name>
 ```
 
