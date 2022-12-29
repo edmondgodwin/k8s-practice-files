@@ -149,5 +149,26 @@ kubectl config set-context --current --namespace=<namespace>  (set current names
 kubectl get quota  (view namespace quota)
 kubectl get limitrange
 kubectl describe limitrange <limitrange-name>
+export KUBECONFIG=/Users/mac/.kube/config
+export KUBECONFIG=/Users/mac/kubeconf/aks.conf
 ```
 
+#### AKS Commands
+```
+az aks get-credentials --resource-group aks-rg --name aksdemo1
+
+az aks stop --name aksdemo1 --resource-group aks-rg
+
+az aks start --name aksdemo1 --resource-group aks-rg
+
+az aks nodepool scale --name agentpool --cluster-name aksdemo1 --resource-group aks-rg  --node-count 0
+
+az aks show --name aksdemo1 --resource-group aks-rg
+
+```
+
+#### AKS Demo
+```
+kubeadm join 192.168.15.100:6443 --token gzsbei.whkb2s4n54ytb0i1 \
+        --discovery-token-ca-cert-hash sha256:89863f09e894f81ae2e5918eda71da233e6b3669cd9233142f85029d117ab13c 
+```
